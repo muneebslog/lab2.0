@@ -14,4 +14,9 @@ class Test extends Model
     {
         return $this->belongsToMany(TestField::class, 'test_test_field', 'test_id', 'test_field_id');
     }
+
+    public function patients()
+    {
+        return $this->belongsToMany(Patient::class, 'patient_test', 'test_id', 'patient_id')->withTimestamps();
+    }
 }
