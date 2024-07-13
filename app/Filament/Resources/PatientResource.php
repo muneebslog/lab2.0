@@ -2,17 +2,18 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PatientResource\Pages;
-use App\Filament\Resources\PatientResource\RelationManagers;
-use App\Models\Patient;
 use Filament\Forms;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Patient;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\PatientResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\PatientResource\RelationManagers;
+use App\Filament\Resources\PatientResource\RelationManagers\TestsRelationManager;
 
 class PatientResource extends Resource
 {
@@ -35,9 +36,12 @@ class PatientResource extends Resource
                     ->maxLength(12)
                     ->minLength(11)
                     ->default(null),
-                Select::make('test')
-                ->relationship('tests' , 'name')
-                ->multiple(),
+                    Forms\Components\BelongsToManyMultiSelect::make('tests')
+                    ->relationship('tests', 'name')
+                    ->required(),
+                // Select::make('test')
+                // ->relationship('tests' , 'name')
+                // ->multiple(),
 
             ]);
     }
@@ -78,7 +82,7 @@ class PatientResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            TestsRelationManager::class
         ];
     }
 

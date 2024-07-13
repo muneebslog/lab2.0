@@ -12,6 +12,6 @@ class Patient extends Model
 
     public function tests()
     {
-        return $this->hasMany(Test::class);
+        return $this->BelongsToMany(Test::class);
     }
 }

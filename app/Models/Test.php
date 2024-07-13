@@ -12,7 +12,7 @@ class Test extends Model
     protected $fillable = ['name', 'code', 'short_hand'];
 
   public function testFields()  {
-    return $this->hasMany(TestField::class);
+    return $this->BelongsToMany(TestField::class);
   }
 
  public function Patients(){

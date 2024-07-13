@@ -2,17 +2,20 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\TestResource\Pages;
-use App\Filament\Resources\TestResource\RelationManagers;
-use App\Models\Test;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
+use App\Models\Test;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
+use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
+use App\Filament\Resources\TestResource;
+use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\TestResource\Pages;
+use RelationManagers\TestFieldRelationManager;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\TestResource\RelationManagers;
+use App\Filament\Resources\TestResource\RelationManagers\TestFieldsRelationManager;
 
 class TestResource extends Resource
 {
@@ -34,7 +37,7 @@ class TestResource extends Resource
                     ->maxLength(255)
                     ->default(null),
                     Select::make('test')
-                    ->relationship('testFields' , 'name')
+                    ->relationship('testFields' , 'field_name')
                     ->multiple(),
             ]);
     }
@@ -66,7 +69,7 @@ class TestResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            TestFieldsRelationManager::class
         ];
     }
 
