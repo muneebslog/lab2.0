@@ -11,6 +11,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Forms\Components\Select;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class TestResource extends Resource
@@ -32,6 +33,9 @@ class TestResource extends Resource
                 Forms\Components\TextInput::make('short_hand')
                     ->maxLength(255)
                     ->default(null),
+                    Select::make('test')
+                    ->relationship('testFields' , 'name')
+                    ->multiple(),
             ]);
     }
 

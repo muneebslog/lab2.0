@@ -19,6 +19,6 @@ class TestField extends Model
 
     public function tests()
     {
-        return $this->belongsToMany(Test::class, 'test_test_field', 'test_field_id', 'test_id');
+        return $this->belongsToMany(Test::class);
     }
 }

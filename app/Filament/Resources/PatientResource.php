@@ -6,6 +6,7 @@ use App\Filament\Resources\PatientResource\Pages;
 use App\Filament\Resources\PatientResource\RelationManagers;
 use App\Models\Patient;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -34,6 +35,10 @@ class PatientResource extends Resource
                     ->maxLength(12)
                     ->minLength(11)
                     ->default(null),
+                Select::make('test')
+                ->relationship('tests' , 'name')
+                ->multiple(),
+
             ]);
     }
 

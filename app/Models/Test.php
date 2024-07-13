@@ -2,21 +2,20 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\TestField;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Test extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'code', 'short_hand'];
 
-    public function testFields()
-    {
-        return $this->belongsToMany(TestField::class, 'test_test_field', 'test_id', 'test_field_id');
-    }
+  public function testFields()  {
+    return $this->hasMany(TestField::class);
+  }
 
-    public function patients()
-    {
-        return $this->belongsToMany(Patient::class, 'patient_test', 'test_id', 'patient_id')->withTimestamps();
-    }
+ public function Patients(){
+    return $this->BelongsToMany(Patient::class);
+ }
 }
