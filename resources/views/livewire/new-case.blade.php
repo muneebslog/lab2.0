@@ -25,9 +25,13 @@
             </x-filament::input.wrapper>
             <br>
             <x-filament::input.wrapper>
-                <x-filament::input type="number" wire:model="phone" placeholder="Phone Number"
+                <x-filament::input type="number" minlength="11" min='11'  wire:model.live="phone" placeholder="Phone Number"
                     class=" placeholder:text-gray-700" />
             </x-filament::input.wrapper>
+            <p>Phone Digits:{{ strlen($phone) ?? '' }}</p>
+            @error('phone')
+                <p class="m-2 p-1 bg-red-600 text-white">{{ $message }}</p>
+            @enderror
 
 
             {{-- Content --}}

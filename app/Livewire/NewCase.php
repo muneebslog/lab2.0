@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Test;
 use App\Models\Patient;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 class NewCase extends Component
@@ -12,7 +13,8 @@ class NewCase extends Component
     public $total=0;
     public $age;
     public $gender;
-    public $phone;
+    #[Validate('required|min:11')]
+    public $phone=0;
 
     public $param;
 
@@ -58,6 +60,7 @@ class NewCase extends Component
 
     public function save()
 {
+    $this->validate();
     if (!empty($this->tests)) {
 
     $patient = Patient::create([

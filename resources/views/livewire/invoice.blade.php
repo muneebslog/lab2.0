@@ -37,8 +37,8 @@
         <div class="mt-8 grid sm:grid-cols-2 gap-3">
           <div>
             <dl class="grid sm:grid-cols-5 gap-x-3 mb-1">
-                <dt class="col-span-3 font-semibold text-gray-800 dark:text-neutral-200">Invoice #:</dt>
-                <dd class="col-span-2 text-gray-500 dark:text-neutral-500">{{ $patient->id }}</dd>
+                <dt class="col-span-3 font-semibold text-gray-800 dark:text-neutral-200">Medical Record #:</dt>
+                <dd class="col-span-2 text-gray-500 dark:text-neutral-500"> {{ $patient->created_at->format('d-m-Y') }}-{{ $patient->id }}</dd>
               </dl>
               <dl class="grid sm:grid-cols-5 mt-1 ">
                 <dt class="col-span-3 font-semibold text-gray-800 dark:text-neutral-200">Name:</dt>

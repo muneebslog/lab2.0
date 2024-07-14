@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class PatientTest extends Model
 {
+    protected $table="patient_tests";
     use HasFactory;
+    protected $fillable=[
+        'isResultAdded','isPrinted'
+    ];
 
     public function testResults()
     {
