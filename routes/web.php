@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\invoiceController;
+use App\Http\Controllers\LetterPadController;
 use App\Livewire\Invoice;
 use App\Livewire\LetterPad;
 use App\Livewire\NewCase;
@@ -20,5 +21,6 @@ Route::view('profile', 'profile')
 Route::get('newcase',NewCase::class)->name('new-case');
 Route::get('invoice/{id}',Invoice::class)->name('invoice');
 Route::get('invoice/{invoiceId}/download',invoiceController::class)->name('invoiceDownload');
+Route::get('letterpad',LetterPadController::class)->name('letterpad');
 
 require __DIR__.'/auth.php';
