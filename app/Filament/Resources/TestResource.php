@@ -2,20 +2,15 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Forms;
-use App\Models\Test;
-use Filament\Tables;
-use Filament\Forms\Form;
-use Filament\Tables\Table;
-use Filament\Resources\Resource;
-use Filament\Forms\Components\Select;
-use App\Filament\Resources\TestResource;
-use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\TestResource\Pages;
-use RelationManagers\TestFieldRelationManager;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\TestResource\RelationManagers;
 use App\Filament\Resources\TestResource\RelationManagers\TestFieldsRelationManager;
+use App\Models\Test;
+use Filament\Forms;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Form;
+use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Table;
 
 class TestResource extends Resource
 {
@@ -36,9 +31,28 @@ class TestResource extends Resource
                 Forms\Components\TextInput::make('short_hand')
                     ->maxLength(255)
                     ->default(null),
-                    Select::make('test')
-                    ->relationship('testFields' , 'field_name')
-                    ->multiple(),
+                    Forms\Components\TextInput::make('price')
+                    ->numeric()
+                    ->prefix('Rs')
+                    ->maxValue(42949672.95),
+                Select::make('test')
+                    ->relationship('testFields', 'field_name')
+                    ->preload()
+                    ->multiple()
+                    ->createOptionForm([
+                        Forms\Components\TextInput::make('field_name')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('unit')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('min_value')
+                            ->required()
+                            ->numeric(),
+                        Forms\Components\TextInput::make('max_value')
+                            ->required()
+                            ->numeric(),
+                    ]),
             ]);
     }
 
@@ -69,7 +83,7 @@ class TestResource extends Resource
     public static function getRelations(): array
     {
         return [
-            TestFieldsRelationManager::class
+            TestFieldsRelationManager::class,
         ];
     }
 

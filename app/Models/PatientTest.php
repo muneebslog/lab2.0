@@ -9,7 +9,8 @@ class PatientTest extends Model
 {
     use HasFactory;
 
-    public function testResults(){
+    public function testResults()
+    {
         return $this->belongsToMany(TestResult::class);
     }
 }

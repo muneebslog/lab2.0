@@ -3,15 +3,12 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\TestFieldResource\Pages;
-use App\Filament\Resources\TestFieldResource\RelationManagers;
 use App\Models\TestField;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class TestFieldResource extends Resource
 {
@@ -30,11 +27,9 @@ class TestFieldResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('min_value')
-                    ->required()
-                    ->numeric(),
+                    ->required(),
                 Forms\Components\TextInput::make('max_value')
-                    ->required()
-                    ->numeric(),
+                    ->required(),
             ]);
     }
 

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class TestField extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'field_name',
         'unit',

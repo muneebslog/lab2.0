@@ -14,6 +14,7 @@ class TestResult extends Model
         'test_field_id',
         'result',
     ];
+
     public function patientTest()
     {
         return $this->belongsTo(PatientTest::class, 'patient_test_id');
@@ -26,5 +27,4 @@ class TestResult extends Model
     {
         return $this->belongsTo(TestField::class, 'test_field_id');
     }
-
 }

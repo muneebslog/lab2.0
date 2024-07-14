@@ -7,8 +7,6 @@ use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class TestFieldsRelationManager extends RelationManager
 {
@@ -21,13 +19,13 @@ class TestFieldsRelationManager extends RelationManager
                 Forms\Components\TextInput::make('field_name')
                     ->required()
                     ->maxLength(255),
-                    Forms\Components\TextInput::make('min_value')
+                Forms\Components\TextInput::make('min_value')
                     ->required()
                     ->maxLength(255),
-                    Forms\Components\TextInput::make('max_value')
+                Forms\Components\TextInput::make('max_value')
                     ->required()
                     ->maxLength(255),
-                    Forms\Components\TextInput::make('unit')
+                Forms\Components\TextInput::make('unit')
                     ->required()
                     ->maxLength(255),
             ]);
