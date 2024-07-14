@@ -65,7 +65,29 @@
         </div>
         <!-- End Invoice -->
     </div>
-    <div class=""></div>
+    <div class="">
+
+<div class="grid grid-cols-5 mt-3 grid-rows-3 gap-1 p-1 border-t border-b">
+    <div class="">Patient Name</div>
+    <div >: Anaya Maqsood</div>
+    <div class="col-start-4 row-start-1">Age /  Sex</div>
+    <div class="col-start-5 row-start-1">:  04 Yrs. / Female</div>
+    <div class="col-start-1 row-start-2">Referred by Doctor</div>
+    <div class="col-start-2 row-start-2">:	Dr. Ahtisham Sb</div>
+    <div class="col-start-4 row-start-2">Sample Date</div>
+    <div class="col-start-5 row-start-2">:	13 – 07 – 2024</div>
+    <div class="col-start-1 row-start-3">Phone / Cell No. </div>
+    <div class="col-start-2 row-start-3">:	0315-4161461</div>
+    <div class="col-start-4 row-start-3">Reports Date</div>
+    <div class="col-start-5 row-start-3">:	14 – 07 – 2024</div>
+    <div class="row-span-3 col-start-3 row-start-1 my-1 flex items-center flex-col  ">
+        <img src="{{ asset('images/download.png') }}" class=" size-20" alt="">
+        <p>Track Online</p>
+    </div>
+</div>
+
+
+    </div>
 
     <footer class="fixed bottom-0 w-full ">
         <div class="">
@@ -95,7 +117,7 @@
 
         </div>
         <div class=" text-center pt-1 text-white  text-sm p-3 bg-indigo-900">
-            <p>433/12-A, Peer Colony,St # 1, Walton Road, Lahore, Cell:0320 | Ph: 042 36 66 2345</p>
+            <p>433/12-A, Peer Colony,St # 1, Walton Road, Lahore, Cell: 0320 84 89 685 | Ph: 042 36 66 2345</p>
             <p>Email: mmclahore@gmail.com Website: mohsinmedicalcomplex.com</p>
         </div>
     </footer>
