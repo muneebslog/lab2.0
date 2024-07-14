@@ -17,12 +17,9 @@ class TestResult extends Model
 
     public function patientTest()
     {
-        return $this->belongsTo(PatientTest::class, 'patient_test_id');
+        return $this->belongsTo(PatientTest::class, 'id');
     }
 
-    /**
-     * The test field that this test result belongs to.
-     */
     public function testField()
     {
         return $this->belongsTo(TestField::class, 'test_field_id');
