@@ -25,7 +25,7 @@
             </x-filament::input.wrapper>
             <br>
             <x-filament::input.wrapper>
-                <x-filament::input type="text" wire:model="phone" placeholder="Phone Number"
+                <x-filament::input type="number" wire:model="phone" placeholder="Phone Number"
                     class=" placeholder:text-gray-700" />
             </x-filament::input.wrapper>
 
