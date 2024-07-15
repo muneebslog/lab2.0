@@ -13,6 +13,7 @@ class Invoice extends Component
     public function mount($id)
     {
        $data=Patient::with('tests')->find($id);
+    //    dd($data);
        $this->patient = $data;
         foreach ($data->tests as $test) {
             # code...

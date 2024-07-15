@@ -13,7 +13,7 @@ class NewCase extends Component
     public $total=0;
     public $age;
     public $gender;
-    #[Validate('required|min:11')]
+    #[Validate('required|min:10')]
     public $phone=0;
 
     public $param;

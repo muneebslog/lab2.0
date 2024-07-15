@@ -24,11 +24,15 @@
                 </x-filament::input.select>
             </x-filament::input.wrapper>
             <br>
-            <x-filament::input.wrapper>
-                <x-filament::input type="number" minlength="11" min='11'  wire:model.live="phone" placeholder="Phone Number"
-                    class=" placeholder:text-gray-700" />
-            </x-filament::input.wrapper>
-            <p>Phone Digits:{{ strlen($phone) ?? '' }}</p>
+            <div>
+                <x-filament::input.wrapper>
+                    <x-filament::input type="number" minlength="11" wire:model='phone' min="11" id="phoneInput" placeholder="Phone Number"
+                        class="placeholder:text-gray-700" />
+                </x-filament::input.wrapper>
+
+                <p id="phoneDigitsCount">Phone Digits: 0</p>
+            </div>
+
             @error('phone')
                 <p class="m-2 p-1 bg-red-600 text-white">{{ $message }}</p>
             @enderror
@@ -107,13 +111,15 @@
 
                                         </tbody>
                                     </table>
-                                    <h2 class=" text-right">
 
-                                        Total={{ $total }}
-                                    </h2>
                                 </div>
                             </div>
+
                         </div>
+                        <h2 class=" p-3">
+
+                            Total={{ $total }}
+                        </h2>
                     </div>
                 @endif
 
@@ -131,6 +137,20 @@
 
 
     </div>
+    <script>
+        // Get the input element and the paragraph for displaying count
+        const phoneInput = document.getElementById('phoneInput');
+        const phoneDigitsCount = document.getElementById('phoneDigitsCount');
+
+        // Add an event listener to the input field to count digits on input change
+        phoneInput.addEventListener('input', function() {
+            const phoneValue = phoneInput.value.trim(); // Get input value and trim whitespace
+
+            // Update the paragraph text with the count of digits
+            phoneDigitsCount.textContent = `Phone Digits: ${phoneValue.length}`;
+        });
+    </script>
+
     @script
     <script>
       $wire.on('error', (e) => {

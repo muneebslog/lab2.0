@@ -7,11 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class PatientTest extends Model
 {
-    protected $table="patient_tests";
+    protected $table="patient_test";
     use HasFactory;
     protected $fillable=[
         'isResultAdded','isPrinted'
     ];
+
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class);
+    }
+
+    public function test()
+    {
+        return $this->belongsTo(Test::class);
+    }
 
     public function testResults()
     {
