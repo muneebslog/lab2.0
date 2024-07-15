@@ -229,7 +229,7 @@
                                                     </span>
                                                     <div
                                                         class="flex w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
-                                                        <div
+                                                        <div style="width: 100px;"
                                                             class="flex flex-col justify-center overflow-hidden bg-gray-800"
                                                             role="progressbar"
                                                             style="width: {{ $bar }}%"

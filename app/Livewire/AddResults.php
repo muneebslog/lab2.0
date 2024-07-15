@@ -11,17 +11,20 @@ use App\Models\PatientTest;
 class AddResults extends Component
 {
     public $patient;
+    public $patient_id="";
+    public $test_id="";
     public $results = [];
 
     public function mount($patientId, $testId)
     {
-        $this->patient = Patient::with(['tests' => function ($query) {
-            $query->wherePivot('isResultAdded', 0);
-        }])->findOrFail($id);
+        $this->patient = Patient::with(['tests' => function ($query) use ($testId) {
+            $query->wherePivot('isResultAdded', 0)->where('test_id', $testId);
+        }])->findOrFail($patientId);
+        $this->test_id = $testId;
+        $this->patient_id= $patientId;
         // dd($this->patient);
-
-
     }
+
     public function save()
     {
         // dd($this->results);
@@ -43,7 +46,7 @@ class AddResults extends Component
                 // You can update other fields as needed here
             ]);
         }
-        $this->dispatch('message','Successfully Added');
+        return redirect()->route('invoice', ['id' => $this->patient_id]);
         // dd($data[0]->id);
     }
     public function render()
