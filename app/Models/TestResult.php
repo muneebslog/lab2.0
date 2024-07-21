@@ -15,13 +15,18 @@ class TestResult extends Model
         'result',
     ];
 
+
+
+
+
     public function patientTest()
     {
-        return $this->belongsTo(PatientTest::class, 'id');
+        return $this->belongsTo(PatientTest::class);
     }
 
     public function testField()
     {
-        return $this->belongsTo(TestField::class, 'test_field_id');
+        return $this->belongsTo(TestField::class);
     }
+
 }

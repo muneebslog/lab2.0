@@ -15,6 +15,9 @@ class AddResults extends Component
     public $test_id="";
     public $results = [];
 
+    public $error;
+
+
     public function mount($patientId, $testId)
     {
         $this->patient = Patient::with(['tests' => function ($query) use ($testId) {
@@ -28,6 +31,7 @@ class AddResults extends Component
     public function save()
     {
         // dd($this->results);
+
         foreach ($this->results as $testCode => $array) {
             # code...
             $data = PatientTest::where('patient_id', $this->patient->id)
@@ -47,8 +51,10 @@ class AddResults extends Component
             ]);
         }
         return redirect()->route('invoice', ['id' => $this->patient_id]);
+
         // dd($data[0]->id);
     }
+
     public function render()
     {
         return view('livewire.add-results');

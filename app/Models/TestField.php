@@ -22,4 +22,11 @@ class TestField extends Model
     {
         return $this->belongsToMany(Test::class);
     }
+
+    public function patientTests()
+    {
+        return $this->hasManyThrough(PatientTest::class, TestResult::class, 'test_field_id', 'patient_test_id');
+    }
+
+
 }

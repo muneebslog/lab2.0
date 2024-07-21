@@ -25,6 +25,6 @@ class PatientTest extends Model
 
     public function testResults()
     {
-        return $this->belongsToMany(TestResult::class);
+        return $this->hasMany(TestResult::class, 'patient_test_id');
     }
 }

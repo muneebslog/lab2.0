@@ -37,6 +37,9 @@ class TestFieldsRelationManager extends RelationManager
             ->recordTitleAttribute('field_name')
             ->columns([
                 Tables\Columns\TextColumn::make('field_name'),
+                Tables\Columns\TextColumn::make('min_value'),
+                Tables\Columns\TextColumn::make('max_value'),
+                Tables\Columns\TextColumn::make('unit'),
             ])
             ->filters([
                 //

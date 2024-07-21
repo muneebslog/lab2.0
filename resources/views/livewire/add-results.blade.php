@@ -24,6 +24,7 @@
     <div class="bg-white p-3 m-3 rounded shadow">
             <div>
                 <h2 class="text-center font-bold text-2xl">{{ $test->name }}</h2>
+
                 <div class="flex flex-col">
                     <div class="-m-1.5 overflow-x-auto">
                         <div class="p-1.5 min-w-full inline-block align-middle">
@@ -49,7 +50,7 @@
                                         </tr>
                                     </thead>
                                     <tbody class="divide-y divide-gray-200">
-                                        @foreach ($test->testFields as $field)
+                                        @foreach ($test->testFields as $i => $field)
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                                                     {{ $field->field_name }}</td>
@@ -78,7 +79,11 @@
                     </div>
                 </div>
             </div>
-
+            <div class=" bg-red-300  ">
+                @error($error)
+                    {{ $message }}
+                @enderror
+            </div>
                 <div class="flex w-full items-center justify-end">
                     <button wire:click='save({{ $test->id }})' type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
                         Save

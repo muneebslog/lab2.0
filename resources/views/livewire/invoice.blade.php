@@ -122,7 +122,7 @@
                     Add Result
                 </a>
                 @else
-                <a href="#" type="button" class="py-1 px-2 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-green-600 text-white hover:bg-green-700 disabled:opacity-50 disabled:pointer-events-none">
+                <a href="{{ route('showreport',$item->pivot->id) }}" type="button" class="py-1 px-2 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-green-600 text-white hover:bg-green-700 disabled:opacity-50 disabled:pointer-events-none">
                     Show Report
                 </a>
                 @endif
