@@ -16,7 +16,6 @@
         /* Set A4 size with margins for printing */
         @page {
             size: A4;
-            /* margin: 2cm; */
         }
 
         /* Apply styles to the body element */
@@ -29,50 +28,51 @@
 
 </head>
 
-<body contenteditable class="">
-    <div class=" w-full">
-        <div class=" w-full">
-            <!-- Card -->
-            <div class="flex flex-col  bg-white  rounded-xl dark:bg-neutral-800">
-                <div class="flex justify-between  items-center">
+<body  class=" ">
+    <div class="   ">
+        <div class=" ">
+            <div class=" ">
+                <!-- Card -->
+                <div class="flex flex-col  bg-white  rounded-xl dark:bg-neutral-800">
+                    <div class="flex justify-between  items-center">
 
-                    <div class="flex">
-                        <div class="">
-                            <h1 class="mt-2 text-5xl  font-semibold text-blue-900 dark:text-white font-serif">Mohsin
-                            </h1>
-                            <div class=" mx-1 font-mono">
-                                <p class="font-serif">PHC REG # R <span class="font-sans">13048</span></P>
+                        <div class="flex">
+                            <div class="">
+                                <h1 class="mt-2 text-5xl  font-semibold text-blue-900 dark:text-white font-serif">Mohsin
+                                </h1>
+                                <div class=" mx-1 font-mono">
+                                    <p class="font-serif">PHC REG # R <span class="font-sans">13048</span></P>
+                                </div>
+                            </div>
+                            <div class="flex flex-col">
+                                <div class=" h-1/2 flex items-end">
+                                    <p class=" font-semibold text-blue-900 font-serif">&nbsp;Clinical </p>
+                                </div>
+                                <div class=" h-1/2">
+                                    <p class=" font-serif font-semibold text-blue-900">
+                                        &nbsp; Laboratory
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                        <div class="flex flex-col">
-                            <div class=" h-1/2 flex items-end">
-                                <p class=" font-semibold text-blue-900 font-serif">&nbsp;Clinical </p>
-                            </div>
-                            <div class=" h-1/2">
-                                <p class=" font-serif font-semibold text-blue-900">
-                                    &nbsp; Laboratory
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" flex gap-3">
-                        <div class="font-serif">Medical Record No:</div>
-                        <div class="flex flex-col">
-                            <div class=""><img class="h-[30px]" src="{{ asset('images/download (1).png') }}"
-                                    alt=""></div>
-                            <div class="text-center">
-                                <span class="">{{ now()->format('d-m-Y') }}-13</sapn>
-                            </div>
+                        <div class=" flex gap-3">
+                            <div class="font-serif">Medical Record No:</div>
+                            <div class="flex flex-col">
+                                <div class=""><img class="h-[30px]" src="{{ asset('images/download (1).png') }}"
+                                        alt=""></div>
+                                <div class="text-center">
+                                    <span class="">{{ now()->format('d-m-Y') }}-{{ $no }}</sapn>
+                                </div>
 
+                            </div>
                         </div>
+                        <!-- Col -->
                     </div>
-                    <!-- Col -->
                 </div>
             </div>
+            <!-- End Invoice -->
         </div>
-        <!-- End Invoice -->
-    </div>
-    {{-- <div class="">
+        {{-- <div class="">
 
         <div class="grid text-sm grid-cols-5 mt-3 grid-rows-3 gap-1 p-1 border-t border-b">
             <div class="font-serif">Patient Name</div>
@@ -95,51 +95,53 @@
 
 
     </div> --}}
-<div class="">
-    <div class=" min-h-[80vh] border-black">
-        {{-- @yield('content') --}}
-
-        {{ $slot }}
-    </div>
-
-    <div class="  w-screen ">
         <div class="">
-            <p class=" text-center font-serif"> Electronically verified report. No signature(s) required. Not valid for
-                Court</p>
-            <div class="grid text-center m-1 mb-2 border-black border-t grid-cols-4 grid-rows-1 gap-4">
-                <div class="text-center">
-                    <h3 class=" font-serif  text-xs">Dr. Tariq Saeed</h3>
-                    <p class="font-serif  text-[0.50rem]">M.B.B.S. M.C.P.S, F.C.P.S</p>
-                    <p class="font-serif  text-[0.50rem]">Asst prof. surgery Shalimar</p>
-                </div>
-                <div>
-                    <h3 class=" font-serif  text-xs">Dr. Muhammad Sohail</h3>
-                    <p class="font-serif  text-[0.50rem]">M.B.B.S, MS (UROLOGY) </p>
-                    <p class="font-serif  text-[0.50rem]">Consultant Urologist</p>
-                </div>
-                <div>
-                    <h3 class=" font-serif  text-xs"> Muhammad Asghar</h3>
-                    <p class="font-serif  text-[0.50rem]"> Sr. Lab Technician </p>
-                </div>
-                <div>
-                    <h3 class=" font-serif  text-xs">Muhammad Zia Ul Haq</h3>
-                    <p class="font-serif  text-[0.50rem]"> Biochemist & Molecular Biologist </p>
+            <div class=" min-h-[820px] border-black">
+                {{-- @yield('content') --}}
 
-                </div>
+                {{ $slot }}
             </div>
 
+            <div class="  w-screen ">
+                <div class="">
+                    <p class=" text-center font-serif"> Electronically verified report. No signature(s) required. Not
+                        valid for
+                        Court</p>
+                    <div class="grid text-center m-1 mb-2 border-black border-t grid-cols-4 grid-rows-1 gap-4">
+                        <div class="text-center">
+                            <h3 class=" font-serif  text-xs">Dr. Tariq Saeed</h3>
+                            <p class="font-serif  text-[0.50rem]">M.B.B.S. M.C.P.S, F.C.P.S</p>
+                            <p class="font-serif  text-[0.50rem]">Asst prof. surgery Shalimar</p>
+                        </div>
+                        <div>
+                            <h3 class=" font-serif  text-xs">Dr. Muhammad Sohail</h3>
+                            <p class="font-serif  text-[0.50rem]">M.B.B.S, MS (UROLOGY) </p>
+                            <p class="font-serif  text-[0.50rem]">Consultant Urologist</p>
+                        </div>
+                        <div>
+                            <h3 class=" font-serif  text-xs"> Muhammad Asghar</h3>
+                            <p class="font-serif  text-[0.50rem]"> Sr. Lab Technician </p>
+                        </div>
+                        <div>
+                            <h3 class=" font-serif  text-xs">Muhammad Zia Ul Haq</h3>
+                            <p class="font-serif  text-[0.50rem]"> Biochemist & Molecular Biologist </p>
 
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class=" text-center font-serif pt-1 text-white   font-mono text-sm p-3 bg-indigo-900">
+                    <p><span class="font-sans">433/12</span>-A,Peer Colony,St <span class="font-sans"># 1</span>,Walton
+                        Road
+                        Lahore, <span class="font-sans">Cell: 0320-8489685 | Ph: 042 36662345</span></p>
+                    <p class="text-xs"> Website: mohsinmedicalcomplex.com</p>
+                </div>
+            </div>
         </div>
-        <div class=" text-center font-serif pt-1 text-white   font-mono text-sm p-3 bg-indigo-900">
-            <p><span class="font-sans">433/12</span>-A,Peer Colony,St <span class="font-sans"># 1</span>,Walton Road
-                Lahore, <span class="font-sans">Cell: 0320-8489685 | Ph: 042 36662345</span></p>
-            <p class="text-xs"> Website: mohsinmedicalcomplex.com</p>
-        </div>
+
+
     </div>
-</div>
-
-
-
 
 </body>
 

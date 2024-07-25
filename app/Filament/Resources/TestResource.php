@@ -47,11 +47,9 @@ class TestResource extends Resource
                             ->required()
                             ->maxLength(255),
                         Forms\Components\TextInput::make('min_value')
-                            ->required()
-                            ->numeric(),
+                            ->required(),
                         Forms\Components\TextInput::make('max_value')
-                            ->required()
-                            ->numeric(),
+                            ->required(),
                     ]),
             ]);
     }

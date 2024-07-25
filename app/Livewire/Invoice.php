@@ -7,11 +7,13 @@ use Livewire\Component;
 
 class Invoice extends Component
 {
+    public $qr;
     public $total=0;
 
     public $patient;
     public function mount($id)
     {
+
        $data=Patient::with('tests')->find($id);
     //    dd($data);
        $this->patient = $data;

@@ -12,7 +12,7 @@ class NewCase extends Component
     public $name;
     public $total=0;
     public $age;
-    public $gender;
+    public $gender='male';
     #[Validate('required|min:10')]
     public $phone=0;
 
@@ -63,12 +63,13 @@ class NewCase extends Component
     $this->validate();
     if (!empty($this->tests)) {
 
-    $patient = Patient::create([
-        'name' => $this->name,
-        'age' => $this->age,
-        'phone' => $this->phone,
-        'gender' => $this->gender,
-    ]);
+        $patient = Patient::create([
+            'name' => $this->name,
+            'age' => $this->age,
+            'phone' => $this->phone,
+            'gender' => $this->gender,
+        ]);
+        // dd($patient);
 
         $testIds = array_column($this->tests, 'id');
         $patient->tests()->attach($testIds);
