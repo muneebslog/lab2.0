@@ -25,13 +25,29 @@ class TestResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\Select::make('department')
+                ->label('Department Name')
+                    ->required()
+                    ->options([
+                        'HEMATOLOGY' => 'HEMATOLOGY' ,
+                        'SEROLOGY' => 'SEROLOGY' ,
+                        'BIOCHEMISTRY' => 'BIOCHEMISTRY' ,
+                        'MICROBIOLOGY' => 'MICROBIOLOGY' ,
+                        'BLOOD BANKING ' => 'BLOOD BANKING ' ,
+                        'PCR ' => 'PCR ' ,
+                        'ELISA ' => 'ELISA ' ,
+
+                    ])
+                ,
                 Forms\Components\TextInput::make('code')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->unique("tests","code"),
                 Forms\Components\TextInput::make('short_hand')
                     ->maxLength(255)
                     ->default(null),
                     Forms\Components\TextInput::make('price')
+                    ->required()
                     ->numeric()
                     ->prefix('Rs')
                     ->maxValue(42949672.95),

@@ -12,6 +12,9 @@ use App\Http\Controllers\TestViewController;
 use App\Http\Controllers\LetterPadController;
 use App\Http\Controllers\QRcodeGenerateController;
 use App\Livewire\EditReport;
+use App\Livewire\NewformFilament;
+use App\Livewire\NoHeaderShowReport;
+use App\Livewire\PatientEdit;
 
 // Route::view('/', 'welcome');
 
@@ -26,7 +29,7 @@ Route::view('profile', 'profile')
     ->name('profile');
 
 
-Route::get('newcase',NewCase::class)->name('new-case');
+// Route::get('newcase',NewCase::class)->name('new-case');
 
 
 Route::get('invoice/{id}',Invoice::class)->name('invoice');
@@ -35,10 +38,14 @@ Route::get('caselist',ListCases::class)->name('cases-list');
 // Route::get('test/add/results/{id}',AddResults::class)->name('addResults');
 Route::get('test/addresults/{patientId}/{testId}',AddResults::class)->name('addResults');
 Route::get('report/show/{id}',ShowReport::class)->name('showreport');
+Route::get('report/show/noheader/{id}',NoHeaderShowReport::class)->name('noheaderreport');
 Route::get('report/edit/{id}',EditReport::class)->name('editreport');
+Route::get('patient/edit/{id}',PatientEdit::class)->name('patientEdit');
 Route::get('invoice/{invoiceId}/download',invoiceController::class)->name('invoiceDownload');
 Route::get('letterpad',LetterPadController::class)->name('letterpad');
 Route::get('report/view/{id}',TestViewController::class)->name('reportShow');
 // Route::get('/qr', [QRcodeGenerateController::class,'qrcode']);
+Route::get('newcase', NewformFilament::class)->name('new-case');
+// Route::get('testing', NewformFilament::class);
 
 require __DIR__.'/auth.php';

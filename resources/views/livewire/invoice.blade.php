@@ -1,7 +1,9 @@
 <div class="">
     {{-- Stop trying to control. --}}
+    <x-back-link href="{{ route('cases-list') }}">Invoice</x-back-link>
+
    <!-- Invoice -->
-<div class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto ">
+<div class="max-w-[85rem] px-4 mt-3 sm:px-6 lg:px-8 mx-auto ">
     <div class="sm:w-11/12 lg:w-3/4 mx-auto">
       <!-- Card -->
       <div class="flex flex-col p-4 sm:p-10 bg-white shadow-md rounded-xl dark:bg-neutral-800">
@@ -78,17 +80,17 @@
         <!-- Table -->
         <div class="mt-6">
           <div class="border border-gray-200 p-4 rounded-lg space-y-4 dark:border-neutral-700">
-            <div class="hidden sm:grid sm:grid-cols-5">
+            <div class="hidden sm:grid sm:grid-cols-6">
               <div class="sm:col-span-2 text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">Test</div>
               <div class="text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">Rate</div>
               <div class="text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">Status</div>
-              <div class="text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">Action</div>
+              <div class=" text-xs font-medium text-gray-500 uppercase dark:text-neutral-500 text-center">Action</div>
             </div>
 
             <div class="hidden sm:block border-b border-gray-200 dark:border-neutral-700"></div>
             @foreach ($patient->tests as $item)
 
-            <div class="grid grid-cols-4 sm:grid-cols-5 gap-2">
+            <div class="grid grid-cols-4 sm:grid-cols-6 gap-2">
               <div class="col-span-full sm:col-span-2">
                 <h5 class="sm:hidden text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">Item</h5>
                 <p class="font-medium text-gray-800 dark:text-neutral-200">{{ $item->name }}</p>
@@ -116,15 +118,21 @@
                       </span>
                     @endif
                   </div>
-              <div class=" ">
+              <div class=" flex gap-3  col-span-2">
                 @if (!$item->pivot->isResultAdded)
 
                 <a href="{{ route('addResults', ['patientId' => $patient->id, 'testId' => $item->id]) }}" type="button" class="py-1 px-2 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
                     Add Result
                 </a>
                 @else
+                <a href="{{ route('addResults', ['patientId' => $patient->id, 'testId' => $item->id]) }}" type="button" class="py-0 px-2 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                    Edit
+                </a>
                 <a target="__blank" href="{{ route('showreport',$item->pivot->id) }}" type="button" class="py-1 px-2 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-green-600 text-white hover:bg-green-700 disabled:opacity-50 disabled:pointer-events-none">
-                    Show Report
+                    Header
+                </a>
+                <a target="__blank" href="{{ route('noheaderreport',$item->pivot->id) }}" type="button" class="py-1 px-2 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                    No Header
                 </a>
 
                 @endif

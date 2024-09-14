@@ -56,7 +56,7 @@
                                                     {{ $field->field_name }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                                                     <div class="max-w-sm space-y-3">
-                                                        <input type="text" wire:model='results.{{ $test->id }}.{{ $field->id }}'
+                                                        <input  {{ $i==0 ? "autofocus" : "" }} type="text" wire:model='results.{{ $test->id }}.{{ $field->id }}'
                                                             class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm disabled:opacity-50 disabled:pointer-events-none result-input"
                                                             placeholder="Enter result" data-min="{{ $field->min_value }}"
                                                             data-max="{{ $field->max_value }}">

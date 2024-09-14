@@ -244,16 +244,17 @@
                                     </td>
                                     <td class="size-px whitespace-nowrap">
                                         <a href="{{ route('invoice', $item->id) }}"
-                                            class="cursor-pointer block px-6 py-3">
-                                            <div class="px-6 py-3">
+                                            class="cursor-pointer block px-6 py-1.5">
+                                            <div class="px-6 py-1.5">
                                                 <span
-                                                    class="text-sm text-gray-500">{{ $item->created_at->format('j M, H:i') }}
+                                                    class="inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 hover:underline font-medium">
+                                                    Details
                                                 </span>
                                             </div>
                                         </a>
                                     </td>
                                     <td class="size-px whitespace-nowrap">
-                                        <a href="{{ route('invoice', $item->id) }}"
+                                        <a href="{{ route('patientEdit', $item->id) }}"
                                             class="cursor-pointer block px-6 py-1.5">
                                             <div class="px-6 py-1.5">
                                                 <span

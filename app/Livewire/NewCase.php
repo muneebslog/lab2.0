@@ -72,6 +72,7 @@ class NewCase extends Component
         // dd($patient);
 
         $testIds = array_column($this->tests, 'id');
+        dd($testIds);
         $patient->tests()->attach($testIds);
         $this->rest();
         $this->redirect('/invoice/'.$patient->id); // Pass patient ID // Return the created patient for further use (optional)

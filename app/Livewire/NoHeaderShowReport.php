@@ -2,14 +2,14 @@
 
 namespace App\Livewire;
 
-use App\Models\PatientTest;
-use App\Models\TestResult;
 use Livewire\Component;
+use App\Models\PatientTest;
 
-class ShowReport extends Component
+class NoHeaderShowReport extends Component
 {
     public $data;
     public function mount($id){
+        // dd($id);
         $data=PatientTest::with('patient','test','testResults')->find($id);
         // dd($data->id);
         // $results=TestResult::where('patient_test_id',$data->id)->get();
@@ -26,6 +26,6 @@ class ShowReport extends Component
     }
     public function render()
     {
-        return view('livewire.show-report')->layout('invoices.letterpad');
+        return view('livewire.no-header-show-report')->layout('invoices.noheader');
     }
 }

@@ -34,27 +34,11 @@
             <div class=" ">
                 <!-- Card -->
                 <div class="flex flex-col  bg-white  rounded-xl dark:bg-neutral-800">
-                    <div class="flex justify-between  items-center">
+                    <div class="flex justify-between pt-8 items-center">
 
                         <div class="flex">
-                            <div class="">
-                                <h1 class="mt-2 text-5xl  font-semibold text-blue-900 dark:text-white font-serif">Mohsin
-                                </h1>
-                                <div class=" mx-1 font-mono">
-                                    <p class="font-serif">PHC REG # R <span class="font-sans">13048</span></P>
-                                </div>
-                            </div>
-                            <div class="flex flex-col">
-                                <div class=" h-1/2 flex items-end">
-                                    <p class=" font-semibold text-blue-900 font-serif">&nbsp;Clinical </p>
-                                </div>
-                                <div class=" h-1/2">
-                                    <p class=" font-serif font-semibold text-blue-900">
-                                        &nbsp; Laboratory
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+
+                                                   </div>
                         <div class=" flex gap-3">
                             <div class="font-serif">Medical Record No:</div>
                             <div class="flex flex-col">
@@ -103,7 +87,7 @@
                 {{ $slot }}
             </div>
 
-            <div class="  w-screen ">
+            <div class="  w-screen  pt-14">
                 <div class="">
                     <p class=" text-center font-serif"> Electronically verified report. No signature(s) required. Not
                         valid for
@@ -132,12 +116,12 @@
 
 
                 </div>
-                <div class=" text-center font-serif pt-1 text-white   font-mono text-sm p-3 bg-indigo-900">
+                {{-- <div class=" text-center font-serif pt-1 text-white   font-mono text-sm p-3 bg-white ">
                     <p><span class="font-sans">433/12</span>-A,Peer Colony,St <span class="font-sans"># 1</span>,Walton
                         Road
                         Lahore, <span class="font-sans">Cell: 0320-8489685 | Ph: 042 36662345</span></p>
                     <p class="text-xs"> Website: mohsinmedicalcomplex.com</p>
-                </div>
+                </div> --}}
             </div>
         </div>
 
