@@ -9,7 +9,7 @@ class Test extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'code', 'short_hand','price'];
+    protected $fillable = ['name', 'code', 'short_hand','price','comment'];
 
     public function testFields()
     {

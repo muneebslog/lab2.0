@@ -51,6 +51,7 @@ class TestResource extends Resource
                     ->numeric()
                     ->prefix('Rs')
                     ->maxValue(42949672.95),
+                Forms\Components\TextArea::make('comment'),
                 Select::make('test')
                     ->relationship('testFields', 'field_name')
                     ->preload()

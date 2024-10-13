@@ -2,13 +2,14 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\TestFieldResource\Pages;
-use App\Models\TestField;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
+use App\Models\TestField;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use App\Filament\Resources\TestFieldResource\Pages;
+use App\Filament\Resources\TestFieldResource\RelationManagers\NormalRangesRelationManager;
 
 class TestFieldResource extends Resource
 {
@@ -72,7 +73,8 @@ class TestFieldResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            NormalRangesRelationManager::class,
+
         ];
     }
 

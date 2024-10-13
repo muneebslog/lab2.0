@@ -280,12 +280,22 @@
                         </td>
                     </tr>
 
-                    @if ($data->test->code == 1300 && $i == 7)
+                    @if ($data->test->code == 1300)
+                        @if ($resultCount==13 && $i == 8)
+
                         <tr>
                             <td colspan="4" class="px-6 py-1 whitespace-no-wrap font-bold underline border-gray-300">
                                 Differential Leukocytes Count:
                             </td>
                         </tr>
+                        @elseif ($resultCount==12 && $i == 7)
+                          <tr>
+                            <td colspan="4" class="px-6 py-1 whitespace-no-wrap font-bold underline border-gray-300">
+                                Differential Leukocytes Count:
+                            </td>
+                        </tr>
+                        @endif
+
                     @endif
                 @endforeach
             </tbody>
@@ -293,7 +303,9 @@
             </table>
         @endif
 
-
+        <h1 class=" mt-6 text-center">
+            {{ $data->test->comment }}
+        </h1>
 
     </div>
 </div>

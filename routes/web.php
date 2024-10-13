@@ -39,13 +39,17 @@ Route::get('caselist',ListCases::class)->name('cases-list');
 Route::get('test/addresults/{patientId}/{testId}',AddResults::class)->name('addResults');
 Route::get('report/show/{id}',ShowReport::class)->name('showreport');
 Route::get('report/show/noheader/{id}',NoHeaderShowReport::class)->name('noheaderreport');
-Route::get('report/edit/{id}',EditReport::class)->name('editreport');
+// Route::get('report/edit/',EditReport::class)->name('editreport');
+Route::get('report/edit/{patientId}/{testId}', EditReport::class)->name('editreport');
+
 Route::get('patient/edit/{id}',PatientEdit::class)->name('patientEdit');
 Route::get('invoice/{invoiceId}/download',invoiceController::class)->name('invoiceDownload');
 Route::get('letterpad',LetterPadController::class)->name('letterpad');
 Route::get('report/view/{id}',TestViewController::class)->name('reportShow');
 // Route::get('/qr', [QRcodeGenerateController::class,'qrcode']);
-Route::get('newcase', NewformFilament::class)->name('new-case');
+// Route::get('newcase/{id}', NewformFilament::class)->name('new-case');
+Route::get('newcase/', NewformFilament::class)->name('new-case');
+
 // Route::get('testing', NewformFilament::class);
 
 require __DIR__.'/auth.php';
