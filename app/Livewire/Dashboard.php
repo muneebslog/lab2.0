@@ -39,7 +39,7 @@ class Dashboard extends Component
         // Overall stats (all pending tests, not just today)
         $totalTestsLeft = PatientTest::where('isResultAdded', 0)->count();
         $totalCasesAwaiting = Patient::whereHas('tests', function ($q) {
-            $q->wherePivot('isResultAdded', 0);
+            $q->where('patient_test.isResultAdded', 0);
         })->count();
 
         $this->stats = [
