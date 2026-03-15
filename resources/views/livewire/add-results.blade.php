@@ -21,9 +21,13 @@
     {{-- Result Entry Section --}}
     <h2 class="text-center text-4xl font-bold">Result Entry</h2>
     @foreach ($patient->tests as $test)
-    <div class="bg-white p-3 m-3 rounded shadow">
+        <div class="bg-white p-3 m-3 rounded shadow">
             <div>
                 <h2 class="text-center font-bold text-2xl">{{ $test->name }}</h2>
+                {{-- @if ($test->name=='Urine')
+                <button id="nill" class=" border rounded p-2 text-red-500">Nill all</button>
+
+                @endif --}}
 
                 <div class="flex flex-col">
                     <div class="-m-1.5 overflow-x-auto">
@@ -52,13 +56,17 @@
                                     <tbody class="divide-y divide-gray-200">
                                         @foreach ($test->testFields as $i => $field)
                                             <tr>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
+                                                <td
+                                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                                                     {{ $field->field_name }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                                                     <div class="max-w-sm space-y-3">
-                                                        <input  {{ $i==0 ? "autofocus" : "" }} type="text" wire:model='results.{{ $test->id }}.{{ $field->id }}'
+                                                        <input autocomplete=""
+                                                            {{ $i == 0 ? 'autofocus' : '' }} type="text"
+                                                            wire:model='results.{{ $test->id }}.{{ $field->id }}'
                                                             class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm disabled:opacity-50 disabled:pointer-events-none result-input"
-                                                            placeholder="Enter result" data-min="{{ $field->min_value }}"
+                                                            placeholder="Enter result"
+                                                            data-min="{{ $field->min_value }}"
                                                             data-max="{{ $field->max_value }}">
                                                     </div>
                                                 </td>
@@ -70,7 +78,6 @@
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm">
                                                     {{ $field->min_value . ' -- ' . $field->max_value }}</td>
                                             </tr>
-
                                         @endforeach
                                     </tbody>
                                 </table>
@@ -84,54 +91,64 @@
                     {{ $message }}
                 @enderror
             </div>
-                <div class="flex w-full items-center justify-end">
-                    <button wire:click='save({{ $test->id }})' type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
-                        Save
-                      </button>
-                </div>
+            <div class="flex w-full items-center justify-end">
+                <button wire:click='save({{ $test->id }})' type="button"
+                    class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                    Save
+                </button>
             </div>
+        </div>
+    @endforeach
 
-        @endforeach
+    <script>
+        // Get all result input elements
+        const resultInputs = document.querySelectorAll('.result-input');
 
-<script>
-    // Get all result input elements
-    const resultInputs = document.querySelectorAll('.result-input');
+        // Add event listener to each input element
+        resultInputs.forEach(input => {
+            input.addEventListener('input', function() {
+                const minValue = parseFloat(input.getAttribute('data-min'));
+                const maxValue = parseFloat(input.getAttribute('data-max'));
+                const enteredValue = parseFloat(input.value.trim());
 
-    // Add event listener to each input element
-    resultInputs.forEach(input => {
-        input.addEventListener('input', function() {
-            const minValue = parseFloat(input.getAttribute('data-min'));
-            const maxValue = parseFloat(input.getAttribute('data-max'));
-            const enteredValue = parseFloat(input.value.trim());
+                // Check if entered value is less than minimum
+                if (enteredValue < minValue) {
+                    input.classList.remove('border-gray-300');
+                    input.classList.add('border-red-500');
+                    input.closest('tr').querySelector('.indicator').textContent = 'L';
+                }
+                // Check if entered value is more than maximum
+                else if (enteredValue > maxValue) {
+                    input.classList.remove('border-gray-300');
+                    input.classList.add('border-orange-500');
+                    input.closest('tr').querySelector('.indicator').textContent = 'H';
+                }
+                // Reset to default state
+                else {
+                    input.classList.remove('border-red-500', 'border-orange-500');
+                    input.classList.add('border-gray-300');
+                    input.closest('tr').querySelector('.indicator').textContent = '';
+                }
+            });
 
-            // Check if entered value is less than minimum
-            if (enteredValue < minValue) {
-                input.classList.remove('border-gray-300');
-                input.classList.add('border-red-500');
-                input.closest('tr').querySelector('.indicator').textContent = 'L';
-            }
-            // Check if entered value is more than maximum
-            else if (enteredValue > maxValue) {
-                input.classList.remove('border-gray-300');
-                input.classList.add('border-orange-500');
-                input.closest('tr').querySelector('.indicator').textContent = 'H';
-            }
-            // Reset to default state
-            else {
-                input.classList.remove('border-red-500', 'border-orange-500');
-                input.classList.add('border-gray-300');
-                input.closest('tr').querySelector('.indicator').textContent = '';
-            }
         });
+    </script>
+      {{-- <script>
+        document.getElementById('nill').addEventListener('click', function() {
+            // Select all input elements
+            let inputs = document.querySelectorAll('input[type="text"]');
 
-    });
-</script>
-@script
-<script>
-    $wire.on('message', (e) => {
-        alert(e);
-    });
-</script>
-@endscript
+            // Loop through each input and change its value
+            inputs.forEach(function(input) {
+                input.value = "Nill";
+            });
+        });
+    </script> --}}
+    @script
+        <script>
+            $wire.on('message', (e) => {
+                alert(e);
+            });
+        </script>
+    @endscript
 </div>
-

@@ -15,12 +15,21 @@ use App\Livewire\EditReport;
 use App\Livewire\NewformFilament;
 use App\Livewire\NoHeaderShowReport;
 use App\Livewire\PatientEdit;
+use App\Livewire\TrackMyTests;
+use App\Livewire\Dashboard;
 
 // Route::view('/', 'welcome');
 
-Route::redirect('/', 'dashboard');
+Route::get('/my-tests', TrackMyTests::class)->name('track-my-tests');
 
-Route::view('dashboard', 'dashboard')
+Route::get('/', function () {
+    if (auth()->check()) {
+        return redirect()->route('dashboard');
+    }
+    return redirect()->route('track-my-tests');
+});
+
+Route::get('dashboard', Dashboard::class)
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 

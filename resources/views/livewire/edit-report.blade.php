@@ -84,7 +84,7 @@
                 </div>
             </div>
 
- {{--
+
 <script>
     // Get all result input elements
     const resultInputs = document.querySelectorAll('.result-input');
@@ -126,5 +126,4 @@
 </script>
 @endscript
 </div>
- --}}
-<div class=""></div>
+

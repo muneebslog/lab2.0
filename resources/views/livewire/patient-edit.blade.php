@@ -3,6 +3,18 @@
     <div class="max-w-2xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <!-- Card -->
         <div class="bg-white rounded-xl shadow p-4 sm:p-7">
+            <div class="text-red-500">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+            </div>
             <div class="text-center mb-8">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-800">
                     Edit Patient
@@ -16,62 +28,65 @@
                 <!-- Section -->
                 <div>
                     <label for="af-payment-billing-contact" class="inline-block text-sm font-medium">
-                         Patient Name
+                        Patient Name
                     </label>
                     <div class="mt-2 space-y-3">
                         <input wire:model='name' id="af-payment-billing-contact" type="text"
                             class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                            placeholder="First Name" >
+                            placeholder="First Name">
                     </div>
                 </div>
                 <div>
                     <label for="af-payment-billing-contact" class="inline-block text-sm font-medium">
-                         Patient Age
+                        Patient Age
                     </label>
                     <div class="mt-2 space-y-3">
                         <input wire:model='age' id="af-payment-billing-contact" type="text"
                             class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                            placeholder="First Name" >
+                            placeholder="First Name">
                     </div>
                 </div>
                 <div>
                     <label for="af-payment-billing-contact" class="inline-block text-sm font-medium">
-                         Reciept Number
+                        Reciept Number
                     </label>
                     <div class="mt-2 space-y-3">
                         <input wire:model='reciept' id="af-payment-billing-contact" type="text"
                             class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                            placeholder="First Name" >
+                            placeholder="First Name">
                     </div>
                 </div>
                 <div>
                     <label for="af-payment-billing-contact" class="inline-block text-sm font-medium">
-                         Gender
+                        Gender
                     </label>
                     <div class="mt-2 space-y-3">
-                     <select wire:model='gender' class="py-2 px-3 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
-                        <option   value="male">Male</option>
-                        <option value="female" >Female</option>
-                      </select>
+                        <select wire:model='gender'
+                            class="py-2 px-3 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
                     </div>
                 </div>
                 <div>
                     <label for="af-payment-billing-contact" class="inline-block text-sm font-medium">
-                         Phone Number
+                        Phone Number
                     </label>
                     <div class="mt-2 space-y-3">
                         <input wire:model='phone' id="af-payment-billing-contact" type="text"
                             class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                            placeholder="First Name" >
+                            placeholder="First Name">
                     </div>
                 </div>
                 <div>
                     <label for="af-payment-billing-contact" class="inline-block text-sm font-medium">
-                         Referred by
+                        Referred by
                     </label>
                     <div class="mt-2 space-y-3">
-                        <select wire:model='doctor' class="py-2 px-3 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" id="doctor" name="doctor" required>
-                            <option  value="Self">Self</option>
+                        <select wire:model='doctor'
+                            class="py-2 px-3 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                            id="doctor" name="doctor" required>
+                            <option value="Self">Self</option>
                             <option value="Dr. Maliha Tariq">Dr. Maliha Tariq</option>
                             <option value="Dr. Sadia Sohail">Dr. Sadia Sohail</option>
                             <option value="Dr. Gul">Dr. Gul</option>

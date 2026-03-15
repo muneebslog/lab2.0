@@ -9,7 +9,9 @@ use Livewire\Component;
 class ShowReport extends Component
 {
     public $data;
+    public $id;
     public function mount($id){
+        $this->id=$id;
         $data=PatientTest::with('patient','test','testResults')->find($id);
         // dd($data->id);
         // $results=TestResult::where('patient_test_id',$data->id)->get();
@@ -17,10 +19,11 @@ class ShowReport extends Component
         $this->data=$data;
         // $this->hi();
         // dd($data);
+        // dd($data->patient->gender);
 
     }
     public function hi(){
-        PatientTest::find(24)->update([
+        PatientTest::find($this->id)->update([
             'isResultAdded'=>1
         ]);
     }

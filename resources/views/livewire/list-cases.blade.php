@@ -20,39 +20,32 @@
                             </div>
 
                             <div>
-                                <div class="inline-flex gap-x-2">
-                                    <div>
-                                        <div class="inline-flex gap-x-2">
-                                            <button wire:click='prevDay' type="button"
-                                                class="py-1.5 px-2 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
-                                                <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                    stroke-linejoin="round">
-                                                    <path d="m15 18-6-6 6-6" />
-                                                </svg>
-                                                Prev
-                                            </button>
-                                            <div class="border rounded p-2">
-                                                @if ($date->isToday())
-                                                    Today
-                                                @else
-                                                    {{ $date->format('d F Y') }}
-                                                @endif
-                                            </div>
+                                <div class="inline-flex flex-wrap gap-x-2 gap-y-2 items-center">
+                                    <input type="text"
+                                        wire:model.live.debounce.300ms="search"
+                                        placeholder="Search by name or phone..."
+                                        class="py-2 px-3 text-sm rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
 
-                                            <button wire:click='nextDay' type="button"
-                                                class="py-1.5 px-2 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
-                                                Next
-                                                <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                    stroke-linejoin="round">
-                                                    <path d="m9 18 6-6-6-6" />
-                                                </svg>
-                                            </button>
-                                        </div>
+                                    <div class="inline-flex items-center gap-x-1">
+                                        <label for="dateFrom" class="text-sm text-gray-600">From</label>
+                                        <input type="date"
+                                            id="dateFrom"
+                                            wire:model.live="dateFrom"
+                                            class="py-2 px-3 text-sm rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
                                     </div>
+                                    <div class="inline-flex items-center gap-x-1">
+                                        <label for="dateTo" class="text-sm text-gray-600">To</label>
+                                        <input type="date"
+                                            id="dateTo"
+                                            wire:model.live="dateTo"
+                                            class="py-2 px-3 text-sm rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                                    </div>
+                                    @if($dateFrom || $dateTo)
+                                        <button wire:click="clearDates" type="button"
+                                            class="py-2 px-3 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 hover:bg-gray-50">
+                                            Clear dates
+                                        </button>
+                                    @endif
 
                                     <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
                                         href="{{ route('new-case') }}">

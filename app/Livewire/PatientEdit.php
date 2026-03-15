@@ -32,10 +32,8 @@ class PatientEdit extends Component
         $this->validate([
             'name' => 'required|string|max:255',
             'age' => 'nullable|integer|min:0',
-            'phone' => 'nullable|string|max:20',
             'gender' => 'required|string',
-            'reciept' => 'nullable|string|max:255',
-            'doctor' => 'required|string|max:255',
+            'reciept' => 'nullable|max:255',
         ]);
 
         // Update the patient

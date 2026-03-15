@@ -8,8 +8,7 @@
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
@@ -21,6 +20,8 @@
         /* Apply styles to the body element */
         body {
             box-sizing: border-box;
+            font-family: "Roboto", sans-serif;
+            font-size: 300;
             margin: 0;
             padding: 0;
         }
@@ -33,19 +34,19 @@
         <div class=" ">
             <div class=" ">
                 <!-- Card -->
-                <div class="flex flex-col  bg-white  rounded-xl dark:bg-neutral-800">
+                <div class="flex flex-col  bg-white  rounded-xl ">
                     <div class="flex justify-between pt-8 items-center">
 
                         <div class="flex">
 
                                                    </div>
                         <div class=" flex gap-3">
-                            <div class="font-serif">Medical Record No:</div>
+                            <div class="font-serif  font-semibold">Medical Record No:</div>
                             <div class="flex flex-col">
                                 <div class=""><img class="h-[30px]" src="{{ asset('images/download (1).png') }}"
                                         alt=""></div>
                                 <div class="text-center">
-                                    <span class="">{{ now()->format('d-m-Y') }}-{{ $no }}</sapn>
+                                    <span class="font-semibold">{{ now()->format('d-m-Y') }}-{{ $no }}</sapn>
                                 </div>
 
                             </div>
@@ -94,21 +95,21 @@
                         Court</p>
                     <div class="grid text-center m-1 mb-2 border-black border-t grid-cols-4 grid-rows-1 gap-4">
                         <div class="text-center">
-                            <h3 class=" font-serif  text-xs">Dr. Tariq Saeed</h3>
+                            <h3 class=" font-serif  text-xs font-semibold">Dr. Tariq Saeed</h3>
                             <p class="font-serif  text-[0.50rem]">M.B.B.S. M.C.P.S, F.C.P.S</p>
                             <p class="font-serif  text-[0.50rem]">Asst prof. surgery Shalimar</p>
                         </div>
                         <div>
-                            <h3 class=" font-serif  text-xs">Dr. Muhammad Sohail</h3>
+                            <h3 class=" font-serif  text-xs font-semibold">Dr. Muhammad Sohail</h3>
                             <p class="font-serif  text-[0.50rem]">M.B.B.S, MS (UROLOGY) </p>
                             <p class="font-serif  text-[0.50rem]">Consultant Urologist</p>
                         </div>
                         <div>
-                            <h3 class=" font-serif  text-xs"> Muhammad Asghar</h3>
+                            <h3 class=" font-serif  text-xs font-semibold"> Muhammad Asghar</h3>
                             <p class="font-serif  text-[0.50rem]"> Sr. Lab Technician </p>
                         </div>
                         <div>
-                            <h3 class=" font-serif  text-xs">Muhammad Zia Ul Haq</h3>
+                            <h3 class=" font-serif  text-xs font-semibold">Muhammad Zia Ul Haq</h3>
                             <p class="font-serif  text-[0.50rem]"> Biochemist & Molecular Biologist </p>
 
                         </div>

@@ -12,6 +12,7 @@ class TestField extends Model
     protected $fillable = [
         'field_name',
         'unit',
+        'multiple_ranges',
         'min_value',
         'max_value',
         'created_at',

@@ -9,8 +9,10 @@ class PatientTest extends Model
 {
     protected $table="patient_test";
     use HasFactory;
-    protected $fillable=[
-        'isResultAdded','isPrinted'
+    protected $fillable = [
+        'isResultAdded',
+        'isPrinted',
+        'receipt_no',
     ];
 
     public function patient()

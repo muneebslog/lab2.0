@@ -31,6 +31,7 @@ class TestFieldResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('max_value')
                     ->required(),
+                Forms\Components\Checkbox::make('multiple_ranges'),
             ]);
     }
 
@@ -38,6 +39,8 @@ class TestFieldResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                ->searchable(),
                 Tables\Columns\TextColumn::make('field_name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('unit')

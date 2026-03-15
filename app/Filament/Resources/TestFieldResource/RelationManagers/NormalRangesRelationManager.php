@@ -21,10 +21,8 @@ class NormalRangesRelationManager extends RelationManager
                 Forms\Components\Select::make('gender')
                 ->required()
                 ->options([
-                    'all'=>'all',
                     'male'=>'male',
                     'female'=>'female',
-                    'child'=>'child',
                 ]),
             Forms\Components\TextInput::make('min_value')
                 ->required()
