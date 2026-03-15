@@ -79,20 +79,12 @@
                                         </td>
                                         <td class="px-4 py-3 text-right">
                                             @if ($item->pivot->isResultAdded)
-                                                <div class="flex justify-end gap-2">
-                                                    <a href="{{ route('showreport', $item->pivot->id) }}"
-                                                        target="_blank"
-                                                        rel="noopener"
-                                                        class="inline-flex items-center px-3 py-1.5 text-sm font-semibold rounded-lg bg-green-600 text-white hover:bg-green-700">
-                                                        View Report
-                                                    </a>
-                                                    <a href="{{ route('noheaderreport', $item->pivot->id) }}"
-                                                        target="_blank"
-                                                        rel="noopener"
-                                                        class="inline-flex items-center px-3 py-1.5 text-sm font-semibold rounded-lg bg-blue-600 text-white hover:bg-blue-700">
-                                                        No Header
-                                                    </a>
-                                                </div>
+                                                <a href="{{ route('showreport', $item->pivot->id) }}"
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                    class="inline-flex items-center px-3 py-1.5 text-sm font-semibold rounded-lg bg-green-600 text-white hover:bg-green-700">
+                                                    View Report
+                                                </a>
                                             @else
                                                 <span class="text-sm text-gray-400">—</span>
                                             @endif
